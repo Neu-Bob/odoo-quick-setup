@@ -16,11 +16,11 @@ odoo:
     image: odoo:latest
     ports:
         - 8069:8069
-    environment: 
-       -  HOST=db
+    # environment: 
+    #    -  HOST=db
        # -  PORT=5432
-       -  USER=odoo
-       -  PASSWORD=odoo
+       # -  USER=odoo
+       # -  PASSWORD=odoo
   volumes:
        - extra-addons: /mnt/extra-addons
        - data: /var/lib/odoo
