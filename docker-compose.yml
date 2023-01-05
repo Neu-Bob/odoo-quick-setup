@@ -10,7 +10,7 @@ services:
             POSTGRES_USER: odoo
             POSTGRES_PASSWORD: odoo
         volumes:
-            - pg-odoo: /var/lib/postgresql/data
+            - pg-odoo:/var/lib/postgresql/data
      
     odoo:
         image: odoo:latest
@@ -22,8 +22,8 @@ services:
            -  USER=odoo
            -  PASSWORD=odoo
         volumes:
-           - extra-addons: /mnt/extra-addons
-           - data: /var/lib/odoo
+           - extra-addons:/mnt/extra-addons
+           - data:/var/lib/odoo
         depends_on:
               - db
 volumes:
