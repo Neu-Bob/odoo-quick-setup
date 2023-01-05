@@ -5,7 +5,7 @@ volumes:
 services:
   web:
     platform: linux/amd64
-    image: odoo:15.0
+    image: odoo:16.0
     depends_on:
       - db
     volumes:
