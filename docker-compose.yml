@@ -2,22 +2,29 @@ version: '3.1'
 volumes:
   addons:
   postgres-data:
+  data:
+
 services:
-  web:
+  odoo:
+    image: odoo:latest
     platform: linux/amd64
-    image: odoo:15.0
     depends_on:
       - db
+    environment:
+
     volumes:
       - addons:/mnt/extra-addons
+      - data:/var/lib/odoo
     ports:
       - "8069:8069"
   db:
     platform: linux/amd64
-    image: postgres:13
+    image: postgres:latest
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
+      - HOST=db
+      - PORT=5432
+      - POSTGRES_DB=odoo
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
