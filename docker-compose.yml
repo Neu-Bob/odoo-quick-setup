@@ -4,18 +4,20 @@ volumes:
   postgres-data:
 services:
   web:
-    image: odoo:16.0
+    platform: linux/amd64
+    image: odoo:15.0
     depends_on:
       - db
     volumes:
       - addons:/mnt/extra-addons
     ports:
-      - 8069:8069
+      - "8069:8069"
   db:
+    platform: linux/amd64
     image: postgres:13
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=odoo
+      - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
