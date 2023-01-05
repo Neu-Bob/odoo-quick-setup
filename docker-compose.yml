@@ -10,8 +10,6 @@ services:
     platform: linux/amd64
     depends_on:
       - db
-    environment:
-
     volumes:
       - addons:/mnt/extra-addons
       - data:/var/lib/odoo
