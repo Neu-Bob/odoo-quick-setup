@@ -4,7 +4,6 @@ volumes:
   postgres-data:
 services:
   web:
-    platform: linux/amd64
     image: odoo:16.0
     depends_on:
       - db
@@ -13,7 +12,6 @@ services:
     ports:
       - 8069:8069
   db:
-    platform: linux/amd64
     image: postgres:13
     volumes:
       - postgres-data:/var/lib/postgresql/data
