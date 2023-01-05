@@ -22,10 +22,11 @@ odoo:
            -  USER=odoo
            -  PASSWORD=odoo
   volumes:
-       - ./extra-addons:/mnt/extra-addons
-       - data:/var/lib/odoo
+       - extra-addons: /mnt/extra-addons
+       - data: /var/lib/odoo
   depends_on:
           - db
 volumes:
+    extra-addons:
     pg-odoo:
     data:
